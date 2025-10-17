@@ -2,7 +2,11 @@ const createElements = (arr)=>{
   const htmlElement = arr.map((item)=> `<span class="btn">${item}</span>`)
   return htmlElement.join(' ')
 }
-
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
 
 const manageSpinner = (status) => {
   if (status == true) {
